@@ -21,10 +21,10 @@ section {
  *  https://blog.hubspot.com/website/remove-underline-from-links-css
  */
 a:link { 
-    color: lightblue;
+    color: rgb(98, 181, 209);
     text-decoration: none; }
 a:visited { 
-    color: lightblue;
+    color: rgb(147, 208, 228);
     text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
@@ -59,6 +59,10 @@ header li a {
     
 }
 
+/* li {
+    text-decoration: underline;
+} */
+
 /*
 header li a.active {    
     box-shadow: 0 0 15px 5px #eee;
@@ -75,4 +79,10 @@ header li a:hover {
     margin: 10px;*/
 
     /*border: 1px solid #eee;*/
+}
+
+footer {
+    font-size: 12px;
+    color: aqua;
+    mix-blend-mode: hard-light;
 }

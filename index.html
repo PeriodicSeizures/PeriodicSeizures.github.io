@@ -2,17 +2,18 @@
 <html lang="en">
     <head>
         <title>Valhalla</title>
-        <!--link rel="stylesheet" href="main.css"-->
+        <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="nav.css">
     </head>
 
     <body>
-        <header>
+        <header id="nav">
              <nav>
                  <ul>
-                     <li><a class="active" href="index.html">Home</a></li>
-                     <li><a class="inactive" href="reference.html">API Reference</a></li>
-                     <li><a class="inactive" href="about.html">About</a></li>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="itinerary.html">Itinerary</a></li>
+                     <!--li><a href="about.html">About</a></li-->
+                     <li><a href="reference.html">Reference</a></li>
                  </ul>
              </nav>
          </header>
@@ -30,7 +31,9 @@
             <h1>Valhalla</h1>
         </header-->
 
-        <section>
+        <h1 class="title">Valhalla</h1>
+
+        <section id="intro">
             <h3>What is it?</h3>
 
             <p>Valhalla is a Dedicated server for Valheim written in C++.</p>
@@ -41,17 +44,19 @@
 
             <p>Several smaller precursor projects eventually led to what Valhalla is today.</p>
 
-            <p>I can't remember exactly when, but development started around ~2020-2021 when I was getting into networking for the first time.
+            <p>I can't remember exactly when, but development started around ~2020 when I was getting into networking for the first time.
 
                 One of my first projects was 
                 
-                <a href="https://github.com/PeriodicSeizures/CPPNetworking">CPPNetworking</a>, a C++ networking experiment with very basic client/server interactions.
+                <a href="https://github.com/PeriodicSeizures/CPPNetworking"
+                target="_blank"
+                >CPPNetworking</a>, a C++ networking experiment with very basic client/server interactions.
 
                 It is since left abandoned, a relic of the past. It goes to show how little I was familiar with back then.
             </p>
         </section>
 
-        <section>
+        <section id="todo">
             <h3>Roadmap</h3>
 
             <p>There are some annoying bugs in the project, likely as a result of my
@@ -72,7 +77,7 @@
         </section>
 
         <footer>
-            Created by Ricardo Solana 9/28/2023 : Project #1
+            COPYRIGHT © 2023 Valhalla. All Rights Reserved.
         </footer>
     </body>
 </html>

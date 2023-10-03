@@ -1,3 +1,8 @@
+.title {
+    color: lightblue;
+    mix-blend-mode: difference;
+}
+
 /*
 .no-bullets ul {
     display: inline;

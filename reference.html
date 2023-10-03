@@ -7,11 +7,141 @@
 
     <a href="index.html">Home</a>
 
-    <div>
+    <p>
+        Throughout Valheim, there are several useful pieces of information 
+        for developers (or other interested folk):
+    </p>
 
-        <img src="" alt="basic config.yml setup">
+    <ul id="vreferences">
 
-    </div>
+        <li>
+            Valheim utilizes session-independent hashes that
+            are computed from strings. These hashes are signed 
+            32-bit integers, and are used for:
+            
+            <ul>
 
+                <li>Prefabs - The identity of an object</li>
+
+                <li>Animations - Particular animations a Character can play</li>
+
+                <li>
+
+                    ZDO members - ZDO's (likely stands for "zone data object") are responsible for keeping 
+                    objects between clients and servers synchronized and up-to-date. ZDO members refers
+                    to individual dictionary mapped key-value pairs a ZDO can hold, which vary per ZDO.
+
+                </li>
+
+                <li>
+
+                    ZRpc/ZRoutedRpc/ZNetView identifiers - Rpc refers to remote function calling on the 
+                    network side of Valheim. It is what handles most actions a client requests to take, 
+                    bound to the server (or another client). The other function calling 
+                    mechanisms (ZRoutedRpc and ZNetView) are both funnelled through Rpc, and are similar 
+                    in functionality (remote function calling), but they allow for communication between
+                    clients, where the server acts primarily as a middle-man, responsible for transporting
+                    messages. 
+
+                </li>
+
+            </ul>
+        </li>
+
+        <li>
+
+            ZoneLocations (or Features in Valhalla)
+
+            <ul>
+
+                <li>
+
+                    Locations are points of interest in Valheim,
+                    and generally include the 
+                    spawning platform,
+                    scattered runestones,
+                    camps,
+                    dungeons,
+                    and boss areas.
+                </li>
+            </ul>
+
+        </li>
+
+        <li>
+
+            All network transmitted data follows a format depending on
+            the datatype being transmitted, however all types refer back 
+            to primitive data is serialized/deserialized.
+
+        </li>
+
+        <li>
+
+            All primitives (int, char, double...) follow a format 
+            of writing the in-memory representation of the value 
+            to the packet. Little endian seems to be the format,
+            which is what most machines use. If Valhalla were 
+            used on a big-endian machine, it would not work.
+
+        </li>
+
+        <li>
+            Valhalla has somewhat consistent ZoneLocation generation,
+            however things quickly fall apart due of precision.
+            
+            The Valheim devs have recently addressed this issue 
+            in one of the latest patches to the game (doubles instead of floats). 
+            
+            This is somewhat pointless because
+            the new calculations are simply casts to double in-between
+            operations:
+
+            <img src="images/prec1.PNG" alt="doubles in-between float calculations">
+
+            <figcaption>
+                <p>
+                    DUtils.PerlinNoise accepts doubles, however it uses
+                    UnityEngine PerlinNoise (accepts floats), then it's casted back to float... 
+                    This happens numerous times throughout the code.
+                </p>
+                <p>
+                    Valhalla makes use of a reverse engineered implementation of Unity PerlinNoise,
+                    And if needed, precision can be increased by just using doubles.
+                </p>
+
+                <p>
+                    Why bother with these precision changes? 
+                    I'm assuming platform differences of C# and WorldGenerator
+                    anomalies caused by floats.
+                </p>
+            </figcaption>
+        </li>
+
+        <li>
+            As the game gets more updates, it will likely drop support for old world versions,
+            in order to avoid the codebase from being polluted with legacy code.
+            I've debated several times whether to drop old world support or just keep it.
+        </li>
+
+        <li>
+            There's an issue with rotations, I'm not sure yet why. Valheim seems to 
+            yield the same rotation results. I've only tested the values generated 
+            during world loading from file, not what objects might do to rotations 
+            once fully loaded. More testing is needed...
+        </li>
+
+        <li>
+
+            <a href="https://valheim-map.world/" target="_blank">Unofficial Valheim Seed Viewer</a>
+            
+        </li>
+
+
+    </ul>
+
+    
+
+    
 
 </html>
