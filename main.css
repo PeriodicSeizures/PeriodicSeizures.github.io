@@ -1,0 +1,27 @@
+/*
+.no-bullets ul {
+    display: inline;
+    list-style-type: none;
+}
+
+body {
+    font-family: arial;
+    background: radial-gradient(lightgray,darkgray);
+}
+
+header {
+    color: red;
+}
+*/
+
+/*
+ * show/hide unit-tests meme
+ */
+/*
+div a .unit-tests:hover {
+    display: none;
+}
+
+div a .unit-tests:hover {
+    display: block;
+}*/
