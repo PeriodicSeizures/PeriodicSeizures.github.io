@@ -2,17 +2,21 @@
 <html lang="en">
     <head>
         <title>Valhalla - reference</title>
-        <link rel="stylesheet" href="styles/main.css">
+        <link id="main-style" rel="stylesheet" href="styles/main.css">
+        <script src="scripts/style-change.js"></script>
     </head>
 
     <a href="index.html">Home</a>
+
+    <button onclick="changeStyle()" style="float: right;">Change Style</button>
 
     <!--p>
         Throughout Valheim, there are several useful pieces of information 
         for developers (or other interested folk):
     </p-->
 
-    <section>
+    <section class="reference" id="valhalla-reference">
+        <!-- <h3>Lu</h3> -->
         <ul>
             <li>
                 Valheim utilizes session-independent hashes that

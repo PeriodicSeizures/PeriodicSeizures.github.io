@@ -2,20 +2,48 @@
     color: lightblue;
     mix-blend-mode: difference;
     animation: wavy 2s ease-in-out infinite alternate;
+    text-align: center;
+    font-size: 2em;
+    padding-top: 10px;
+    z-index: 1;
 }
 
+section {
+    color: #eee;
+    padding: 20px;
+}
+
+
+/* changing style button */
+#style-button {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    text-decoration: none;
+    opacity: .7;
+    transition: background-color 0.5s ease;
+}
+
+#style-button:hover {
+    background-color: #555;
+}
+
+
+
+/* Below sourced from https://blog.hubspot.com/website/remove-underline-from-links-css
+ */
 section li {
     color: white;
     mix-blend-mode: lighten;
 }
 
-section {
-    color: #eee;
-    /*mix-blend-mode: lighten;*/
-}
 
-/* Below sourced from https://blog.hubspot.com/website/remove-underline-from-links-css
- */
 
 a:link { 
     color: rgb(98, 181, 209);
@@ -26,21 +54,26 @@ a:visited {
     text-decoration: none; 
 }
 a:hover { 
-    text-decoration: none; 
+    text-decoration: none;
+    color:rgb(102, 196, 227);
+    /* transition: background-color 1s ease; */
 }
 a:active { 
     text-decoration: none; 
 }
 
+
+
 main {
     color: white;
+    padding: 20px;
 }
 
 /* Below sourced from https://codetheweb.blog/style-a-navigation-bar-css/
  */
-
- body {
-    /* Valheim Aesthetic Forest Wallpaper. (n.d.). Wallpapers.com. https://wallpapers.com/wallpapers/valheim-aesthetic-forest-7u8tl7ff9atb0dt9.html */
+body {
+    /* Valheim Aesthetic Forest Wallpaper. (n.d.). Wallpapers.com. https://wallpapers.com/wallpapers/valheim-aesthetic-forest-7u8tl7ff9atb0dt9.html
+     */
     background-image: url('https://wallpapers.com/images/high/valheim-aesthetic-forest-7u8tl7ff9atb0dt9.webp');
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,42 +84,37 @@ main {
     background-attachment: fixed;
 }
 
-div {
+section.intro {
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
-
-    background-color: orangered;
+    height: 30px;
+    background-color: #333;
+    /* mix-blend-mode: difference; */
+    /* opacity: .7; */
     position: fixed;
-
-    /* opacity: 0.8; */
-    mix-blend-mode: difference;
-
     align-items: center;
     display: flex;
+    justify-content: space-around;
+    z-index: 5;
 }
 
-div * {
-    display: inline;
+section.intro li {
+    margin: 30px;
+    /* opacity: 0.8; */
+    display: inline-block;
+    padding: 10px;
 }
 
-div li {
-    margin: 20px;
-    opacity: 0.8;
-}
-
-div li a {
-    color: blue;
+section.intro li a {
+    color: lightblue;
     text-decoration: none;
 }
 
-div li a:hover {
-    box-shadow: 0 0 11px #aaa;
-    mix-blend-mode: difference;
+section.intro li:hover {
+    border: 1px solid #aaa;
+    box-shadow: 0 0 10px #aaa;
 }
-
-
 
 /* Below sourced from https://www.w3schools.com/html/html_table_borders.asp
  */
@@ -103,12 +131,20 @@ th, td {
     font-size: 13px;
 }
 
-
-
 footer {
+    position: fixed;
+    bottom: 0;
     font-size: 12px;
-    color: aqua;
+    color: lightblue;
+    text-transform: uppercase;
+    /* text-shadow: #aaa; */
     mix-blend-mode: hard-light;
+    text-align: center;
+    padding: 10px;
+}
+
+h3 {
+    margin-top: 10px;
 }
 
 @keyframes wavy {
@@ -116,6 +152,6 @@ footer {
       transform: translateY(0);
     }
     100% {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
-  }
+}

@@ -1,83 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Valhalla</title>
-        <link rel="stylesheet" href="styles/main.css">
-        <!--link rel="stylesheet" href="nav.css"-->
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Valhalla | A dedicated server implementation for Valheim</title>
+    <link id="main-style" rel="stylesheet" href="styles/main.css">
+    <script src="scripts/style-change.js"></script>
 
-    <body>
-        <div id="nav">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="itinerary.html">Itinerary</a></li>
-                    <!--li><a href="about.html">About</a></li-->
-                    <li><a href="reference.html">Reference</a></li>
-                </ul>
-            </nav>
-        </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Ricardo Solana">
+	<meta name="description" content="A somewhat descriptive overview of Valhalla and compatibility with Valheim">
 
-        <!--div class="no-bullets">
-            <ul>
-                <li><h3>Navigation</h2></li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reference.html">Reference</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </div-->
+    <!-- <link rel="stylesheet" href="nav.css"> -->
+</head>
 
-        <!--header>
-            <h1>Valhalla</h1>
-        </header-->
+<body>
+    <section class="intro" id="valhalla-intro">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="itinerary.html">Itinerary</a></li>
+            <!--li><a href="about.html">About</a></li-->
+            <li><a href="reference.html">Reference</a></li>
+        </ul>
+    </section>
 
-        <h1 class="title">Valhalla</h1>
+    <!-- div class="no-bullets">
+        <ul>
+            <li><h3>Navigation</h2></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reference.html">Reference</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div-->
 
-        <section id="intro">
-            <h3>What is it?</h3>
+    <!--header>
+        <h1>Valhalla</h1>
+    </header -->
 
-            <p>Valhalla is a Dedicated server for Valheim written in C++.</p>
-        </section>
-        
-        <section>
-            <h3>Background</h3>
+    <h1 class="title">Valhalla</h1>
 
-            <p>Several smaller precursor projects eventually led to what Valhalla is today.</p>
+    <!-- style="float: right;" -->
+    <button id="style-button" onclick="changeStyle()" 
+    
+    >Change Style</button>
 
-            <p>I can't remember exactly when, but development started around ~2020 when I was getting into networking for the first time.
+    <section class="overview" id="valhalla-overview">
+        <h3>Overview</h3>
 
-                One of my first projects was 
-                
-                <a href="https://github.com/PeriodicSeizures/CPPNetworking"
-                target="_blank"
-                >CPPNetworking</a>, a C++ networking experiment with very basic client/server interactions.
+        <p>Valhalla is a Dedicated server for Valheim written in C++.</p>
+    </section>
+    
+    <section class="background" id="valhalla-background">
+        <h3>Background</h3>
 
-                It is since left abandoned, a relic of the past. It goes to show how little I was familiar with back then.
-            </p>
-        </section>
+        <p>Several smaller precursor projects eventually led to what Valhalla is today.</p>
 
-        <section id="todo">
-            <h3>Roadmap</h3>
+        <p>I can't remember exactly when, but development started around ~2020 when I was getting into networking for the first time.
+            One of my first projects was 
+            <a href="https://github.com/PeriodicSeizures/CPPNetworking" target="_blank">CPPNetworking</a>
+            , a C++ networking experiment with very basic client/server interactions.
+            It is since left abandoned, a relic of the past. It goes to show how little I was familiar with back then.
+        </p>
+    </section>
 
-            <p>There are some annoying bugs in the project, likely as a result of my
+    <section class="roadmap" id="valhalla-roadmap">
+        <h3>Roadmap</h3>
 
-                inability to run normal unit tests (I'm disorganized).
-            </p>
-        </section>
+        <p>There are some annoying bugs in the project, likely as a result of my
 
-        <section>
-            <h3>Why?</h3>
+            inability to run normal unit tests (I'm disorganized).
+        </p>
+    </section>
 
-            <p>I fell in love with Valheim. I also like C++. 
-                
-                The current Valheim Dedicated server also sucks. 
+    <section class="purpose" id="valhalla-purpose">
+        <h3>Purpose</h3>
 
-                Why not create a Valheim server in C++?        
-            </p>
-        </section>
+        <p>I fell in love with Valheim. I also like C++. 
+            
+            The current Valheim Dedicated server also sucks. 
 
-        <footer>
-            COPYRIGHT © 2023 Valhalla. All Rights Reserved.
-        </footer>
-    </body>
+            Why not create a Valheim server in C++?        
+        </p>
+    </section>
+
+    <footer>
+        COPYRIGHT © 2023 Valhalla. All Rights Reserved.
+    </footer>
+</body>
 </html>
