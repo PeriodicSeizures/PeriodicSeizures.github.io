@@ -2,40 +2,32 @@
 <html lang="en">
     <head>
         <title>Valhalla - reference</title>
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="styles/main.css">
     </head>
 
     <a href="index.html">Home</a>
 
-    <p>
+    <!--p>
         Throughout Valheim, there are several useful pieces of information 
         for developers (or other interested folk):
-    </p>
+    </p-->
 
     <section>
         <ul>
-
             <li>
                 Valheim utilizes session-independent hashes that
                 are computed from strings. These hashes are signed 
                 32-bit integers, and are used for:
                 
                 <ul>
-
                     <li>Prefabs - The identity of an object</li>
-
                     <li>Animations - Particular animations a Character can play</li>
-
                     <li>
-
                         ZDO members - ZDO's (likely stands for "zone data object") are responsible for keeping 
                         objects between clients and servers synchronized and up-to-date. ZDO members refers
                         to individual dictionary mapped key-value pairs a ZDO can hold, which vary per ZDO.
-
                     </li>
-
                     <li>
-
                         ZRpc/ZRoutedRpc/ZNetView identifiers - Rpc refers to remote function calling on the 
                         network side of Valheim. It is what handles most actions a client requests to take, 
                         bound to the server (or another client). The other function calling 
@@ -43,20 +35,13 @@
                         in functionality (remote function calling), but they allow for communication between
                         clients, where the server acts primarily as a middle-man, responsible for transporting
                         messages. 
-
                     </li>
-
                 </ul>
             </li>
-
             <li>
-
                 ZoneLocations (or Features in Valhalla)
-
                 <ul>
-
                     <li>
-
                         Locations are points of interest in Valheim,
                         and generally include the 
                         spawning platform,
@@ -66,27 +51,104 @@
                         and boss areas.
                     </li>
                 </ul>
-
             </li>
-
             <li>
-
                 All network transmitted data follows a format depending on
                 the datatype being transmitted, however all types refer back 
                 to primitive data is serialized/deserialized.
-
             </li>
-
             <li>
-
                 All primitives (int, char, double...) follow a format 
                 of writing the in-memory representation of the value 
                 to the packet. Little endian seems to be the format,
                 which is what most machines use. If Valhalla were 
                 used on a big-endian machine, it would not work.
 
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Length / Spec.</th>
+                        <th>Similar</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <th>bool</th>
+                        <th>1</th>
+                    </tr>
+                    <tr>
+                        <th>byte</th>
+                        <th>1</th>
+                    </tr>
+                    <tr>
+                        <th>short</th>
+                        <th>2</th>
+                    </tr>
+                    <tr>
+                        <th>eint</th>
+                        <th>1-5</th>
+                    </tr>
+                    <tr>
+                        <th>int</th>
+                        <th>4</th>
+                    </tr>
+                    <tr>
+                        <th>long</th>
+                        <th>8</th>
+                    </tr>
+                    <tr>
+                        <th>float</th>
+                        <th>4</th>
+                    </tr>
+                    <tr>
+                        <th>double</th>
+                        <th>8</th>
+                    </tr>
+                    <tr>
+                        <th>T[]</th>
+                        <th>int(length) + ...T</th>
+                        <th>byte[], ZPackage</th>
+                        <th>Array of type T</th>
+                    </tr>
+                    <tr>
+                        <th>char</th>
+                        <th>unicode length</th>
+                        <th></th>
+                        <th>Max de/serialized unicode length is 3 bytes</th>
+                    </tr>
+                    <tr>
+                        <th>string</th>
+                        <th>eint(length) + chars</th>
+                        <th></th>
+                        <th>Length as encoded int followed by ascii characters</th>
+                    </tr>
+                    <tr>
+                        <th>ZDOID</th>
+                        <th>long(UserID) + int(ID)</th>
+                    </tr>
+                    <tr>
+                        <th>Vector3</th>
+                        <th>float(x) + float(y) + float(z)</th>
+                    </tr>
+                    <tr>
+                        <th>Vector2i</th>
+                        <th>int(x) + int(y)</th>
+                    </tr>
+                    <tr>
+                        <th>Vector2s</th>
+                        <th>short(x) + short(y)</th>
+                    </tr>
+                    <tr>
+                        <th>Quaternion</th>
+                        <th>float(x) + float(y) + float(z) + float(w)</th>
+                    </tr>
+                    <tr>
+                        <th>compressed byte[]</th>
+                        <th>int(length) + bytes(compressed)</th>
+                        <th></th>
+                        <th>An integer denoting length of compressed package, followed by actual bytes in compressed form.</th>
+                    </tr>
+                </table>
             </li>
-
             <li>
                 Valhalla has somewhat consistent ZoneLocation generation,
                 however things quickly fall apart due of precision.
@@ -102,15 +164,14 @@
 
                 <figcaption>
                     <p>
-                        DUtils.PerlinNoise accepts doubles, however it uses
-                        UnityEngine PerlinNoise (accepts floats), then it's casted back to float... 
+                        DUtils.PerlinNoise utilizes doubles, however it uses
+                        UnityEngine.Mathf.PerlinNoise behind the scenes (accepts floats), then it's casted back to float... 
                         This happens numerous times throughout the code.
                     </p>
                     <p>
                         Valhalla makes use of a reverse engineered implementation of Unity PerlinNoise,
                         And if needed, precision can be increased by just using doubles.
                     </p>
-
                     <p>
                         Why bother with these precision changes? 
                         I'm assuming platform differences of C# and WorldGenerator
@@ -118,31 +179,20 @@
                     </p>
                 </figcaption>
             </li>
-
             <li>
                 As the game gets more updates, it will likely drop support for old world versions,
                 in order to avoid the codebase from being polluted with legacy code.
                 I've debated several times whether to drop old world support or just keep it.
             </li>
-
             <li>
                 There's an issue with rotations, I'm not sure yet why. Valheim seems to 
                 yield the same rotation results. I've only tested the values generated 
                 during world loading from file, not what objects might do to rotations 
                 once fully loaded. More testing is needed...
             </li>
-
             <li>
-
                 <a href="https://valheim-map.world/" target="_blank">Unofficial Valheim Seed Viewer</a>
-                
             </li>
-
-
         </ul>
-
-    
     </section>
-    
-
 </html>

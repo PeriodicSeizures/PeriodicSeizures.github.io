@@ -1,0 +1,121 @@
+.title {
+    color: lightblue;
+    mix-blend-mode: difference;
+    animation: wavy 2s ease-in-out infinite alternate;
+}
+
+section li {
+    color: white;
+    mix-blend-mode: lighten;
+}
+
+section {
+    color: #eee;
+    /*mix-blend-mode: lighten;*/
+}
+
+/* Below sourced from https://blog.hubspot.com/website/remove-underline-from-links-css
+ */
+
+a:link { 
+    color: rgb(98, 181, 209);
+    text-decoration: none; 
+}
+a:visited { 
+    color: rgb(147, 208, 228);
+    text-decoration: none; 
+}
+a:hover { 
+    text-decoration: none; 
+}
+a:active { 
+    text-decoration: none; 
+}
+
+main {
+    color: white;
+}
+
+/* Below sourced from https://codetheweb.blog/style-a-navigation-bar-css/
+ */
+
+ body {
+    /* Valheim Aesthetic Forest Wallpaper. (n.d.). Wallpapers.com. https://wallpapers.com/wallpapers/valheim-aesthetic-forest-7u8tl7ff9atb0dt9.html */
+    background-image: url('https://wallpapers.com/images/high/valheim-aesthetic-forest-7u8tl7ff9atb0dt9.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: arial;
+    margin-top: 50px;
+    padding: 30px 0px 80px 10px;
+    background-attachment: fixed;
+}
+
+div {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+
+    background-color: orangered;
+    position: fixed;
+
+    /* opacity: 0.8; */
+    mix-blend-mode: difference;
+
+    align-items: center;
+    display: flex;
+}
+
+div * {
+    display: inline;
+}
+
+div li {
+    margin: 20px;
+    opacity: 0.8;
+}
+
+div li a {
+    color: blue;
+    text-decoration: none;
+}
+
+div li a:hover {
+    box-shadow: 0 0 11px #aaa;
+    mix-blend-mode: difference;
+}
+
+
+
+/* Below sourced from https://www.w3schools.com/html/html_table_borders.asp
+ */
+table, th, td {
+    /* border: 2px solid transparent; */
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+th, td {
+    background: rgba(127, 255, 212, .3);
+    padding: 2px;
+    max-width: 300px;
+    font-size: 13px;
+}
+
+
+
+footer {
+    font-size: 12px;
+    color: aqua;
+    mix-blend-mode: hard-light;
+}
+
+@keyframes wavy {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-3px);
+    }
+  }
