@@ -1,12 +1,53 @@
+
 .title {
     color: lightblue;
     mix-blend-mode: difference;
-    animation: wavy 2s ease-in-out infinite alternate;
     text-align: center;
     font-size: 2em;
     padding-top: 10px;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+
+    position: relative;
 }
+
+
+
+/* variables */
+:root {
+    --speed: .3s;
+}
+
+/* Below sourced from https://alvarotrigo.com/blog/css-text-animations#5.-bouncing-with-reflection-text-animation-(css-only)
+ * (page might be laggy, a lot of animations I guess?)
+ */
+.title span {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    /* text-transform: uppercase; */
+    animation: wavy calc(var(--speed) * 10) ease-in-out infinite alternate,
+        floaty calc(var(--speed) * 10) ease-in-out infinite alternate;
+    animation-delay: calc(var(--speed) * var(--id));
+}
+
+@keyframes wavy {
+    0%, 40%, 100% {
+        transform: translateY(0)
+    }
+    20% {
+        transform: translateY(-10px)
+    }
+}
+
+/* This isnt exactly the sequence I was thinking of , but its still kinda fascinating
+ */
+@keyframes floaty {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-8px); }
+}
+
 
 section {
     color: #eee;
@@ -28,6 +69,7 @@ section {
     text-decoration: none;
     opacity: .7;
     transition: background-color 0.5s ease;
+    z-index: 2;
 }
 
 #style-button:hover {
@@ -84,7 +126,8 @@ body {
     background-attachment: fixed;
 }
 
-section.intro {
+/* Top nav */
+section.nav {
     top: 0;
     left: 0;
     right: 0;
@@ -99,19 +142,19 @@ section.intro {
     z-index: 5;
 }
 
-section.intro li {
+section.nav li {
     margin: 30px;
     /* opacity: 0.8; */
     display: inline-block;
     padding: 10px;
 }
 
-section.intro li a {
+section.nav li a {
     color: lightblue;
     text-decoration: none;
 }
 
-section.intro li:hover {
+section.nav li:hover {
     border: 1px solid #aaa;
     box-shadow: 0 0 10px #aaa;
 }
@@ -144,14 +187,5 @@ footer {
 }
 
 h3 {
-    margin-top: 10px;
-}
-
-@keyframes wavy {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-4px);
-    }
+    margin-top: 0px;
 }

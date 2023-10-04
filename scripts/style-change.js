@@ -3,13 +3,21 @@ function changeStyle() {
     var currentCSS = document.getElementById('main-style');
 
     const styles = [
-        "dummy", // non-existent style
+        "none", // non-existent style
         "styles/main.css",
         "styles/alternate.css"
     ]
 
     var index = styles.indexOf(currentCSS.getAttribute('href'))
-    currentCSS.setAttribute('href', styles[(index + 1) % styles.length])
+    var nextIndex = (index + 1) % styles.length
+    var next = styles[nextIndex]
+    currentCSS.setAttribute('href', next)
+
+    document.querySelector('#style-button').value = 'Change Style to ' 
+        + styles[(nextIndex + 1) % styles.length]
+
+    // var button = document.getElementById('style-button')
+    // button.setAttribute('content', 'Change Style (' + next + ')')
 
     // Change the value of href attribute to change the css file.
     // if (currentCSS.getAttribute('href') == 'styles/main.css') {
