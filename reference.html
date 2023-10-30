@@ -27,12 +27,15 @@
                     <li>Prefabs - The identity of an object</li>
                     <li>Animations - Particular animations a Character can play</li>
                     <li>
-                        ZDO members - ZDO's (likely stands for "zone data object") are responsible for keeping 
+                        <abbr title="Zoned data object">ZDO</abbr> members - ZDO's are responsible for keeping 
                         objects between clients and servers synchronized and up-to-date. ZDO members refers
                         to individual dictionary mapped key-value pairs a ZDO can hold, which vary per ZDO.
                     </li>
                     <li>
-                        ZRpc/ZRoutedRpc/ZNetView identifiers - Rpc refers to remote function calling on the 
+                        <abbr title="Remote procedure calling">ZRpc</abbr>/
+                        <abbr title="Routed procedures">ZRoutedRpc</abbr>/
+                        <abbr title="Host-based object procedures">ZNetView</abbr>
+                        identifiers - Rpc refers to remote function calling on the 
                         network side of Valheim. It is what handles most actions a client requests to take, 
                         bound to the server (or another client). The other function calling 
                         mechanisms (ZRoutedRpc and ZNetView) are both funnelled through Rpc, and are similar 
@@ -88,7 +91,7 @@
                         <th>2</th>
                     </tr>
                     <tr>
-                        <th>eint</th>
+                        <th><abbr title="Encoded int">eint</abbr></th>
                         <th>1-5</th>
                     </tr>
                     <tr>
@@ -114,7 +117,7 @@
                         <th>Array of type T</th>
                     </tr>
                     <tr>
-                        <th>char</th>
+                        <th><abbr title="C# primitive character">char</abbr></th>
                         <th>unicode length</th>
                         <th>&nbsp;</th>
                         <th>Max de/serialized unicode length is 3 bytes</th>
@@ -126,7 +129,7 @@
                         <th>Length as encoded int followed by ascii characters</th>
                     </tr>
                     <tr>
-                        <th>ZDOID</th>
+                        <th><abbr title="unique id for zdo">ZDOID</abbr></th>
                         <th>long(UserID) + int(ID)</th>
                     </tr>
                     <tr>
