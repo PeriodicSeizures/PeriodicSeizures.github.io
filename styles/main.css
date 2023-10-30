@@ -159,7 +159,7 @@ section.nav li a.active {
     color: red;
 }
 
-section.nav li:hover {
+section.nav li a:hover {
     border: 1px solid #aaa;
     box-shadow: 0 0 10px #aaa;
 }
