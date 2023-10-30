@@ -26,3 +26,13 @@ function changeStyle() {
     //     currentCSS.setAttribute('href', 'styles/main.css');
     // }
 }
+
+//document.onload = 
+function colorActiveNav() {
+    var path = location.pathname.substring(location.pathname.lastIndexOf('/')+1);
+    console.log(path, typeof(path))
+    var currentLink = $("section ul li a[href='" + path + "']");
+    console.log(currentLink.length > 0)
+    currentLink.addClass("active");
+}
+colorActiveNav(); // run on start

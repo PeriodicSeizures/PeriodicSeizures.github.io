@@ -154,6 +154,11 @@ section.nav li a {
     text-decoration: none;
 }
 
+/* highlight nav page */
+section.nav li a.active {
+    color: red;
+}
+
 section.nav li:hover {
     border: 1px solid #aaa;
     box-shadow: 0 0 10px #aaa;
